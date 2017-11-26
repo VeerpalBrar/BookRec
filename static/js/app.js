@@ -1,37 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
 
     /** @jsx React.DOM */
-    var Input = React.createClass({
-        updateLabel: function(event){
-            this.setState({value: event.target.value});
-        },
-        getInitialState: function(){
-            return {
-                value: ''
-            }
-        },
-        componentWillMount: function(){
-            this.setState({value: this.state.value})
-        },
+    var Booklist = React.createClass({
+        
         render: function(){
             return (
                 <div className="update-label">
-                      <input type="text" placeholder="Enter text" onChange={this.updateLabel}/>
-                    <Label value={this.state.value}/>
+                   <Bookinfo title="harry potter" author="rowling" />
+                    <Bookinfo title="harry potter" author="rowling" />
                 </div>
         )
     }
 });
 
-var Label = React.createClass({
+var Bookinfo = React.createClass({
     render: function(){
-        return (
-        <div class="my-label">
-        <h2>{this.props.value}</h2>
-        </div>
+        return (<div><h1>{this.props.title}</h1>
+      <p>{this.props.author}</p></div>
         )
     }
 });
 
-React.render(<Input/>, document.getElementById('mount-point'));
+React.render(<Booklist/>, document.getElementById('mount-point'));
+
+
